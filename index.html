@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Geographical Redundancy with rbd-mirror</title>
+    <meta name="generator" content="Cookiecutter (from gh:fghaas/cookiecutter-presentation)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <meta property="og:title" content="Geographical Redundancy with rbd-mirror" />
+
+
+    <meta property="og:description" content="Cephalocon 2019 presentation on Ceph RBD mirroring" />
+
+
+    <meta property="og:image" content="images/icon.png" />
+
+
+    <!-- reveal.js CSS theme and local overrides -->
+    <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme"/>
+    <link rel="stylesheet" href="css/reveal-override.css"/>
+
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="highlight.js/src/styles/github.css" />
+
+
+
+    <!-- For JavaScript-generated QR codes -->
+    <link rel="stylesheet" href="css/qrcode.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<!-- Repeat these as often as needed -->
+        <section id="intro"
+                 data-markdown="markdown/00-intro.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+	</section>
+      </div>
+    </div>
+
+    <script src="qrcodejs/qrcode.js"></script>
+    <script>
+/* Grab all links and iterate over them */
+document.querySelectorAll('a[href]').forEach(function(a) {
+  /* Find an element named #qrcode-id, and render the QR code there */
+  document.querySelectorAll('#qrcode-' + a.id).forEach(function(target) {
+    var qr = new QRCode(target, {
+        width : 500,
+        height : 500,
+        colorDark : "#000000",
+        colorLight : "rgba(255,255,255,0)",
+    });
+    qr.makeCode(a.href);
+  });
+});
+    </script>
+
+
+    <script src="reveal.js/js/reveal.js"></script>
+    <script src="reveal-config.js"></script>
+  </body>
+</html>
