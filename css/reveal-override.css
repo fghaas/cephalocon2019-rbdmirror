@@ -7,3 +7,12 @@
    changes, you'll probably want to put those into a Sass template
    that you then render into this file.
 */
+
+body:after {
+    content: '@xahteiwi';
+    opacity: 0.5;
+    font-size: 200%;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+}
