@@ -45,6 +45,11 @@ data from one Ceph cluster to another. Now to understand how and why
 that is useful, we’ll have to back up a bit and look at how
 replication in a Ceph cluster *normally* works.
 
+
+<!-- .slide: data-background-image="images/cluster-replication.svg" data-background-size="contain" -->
+## Standard Ceph replication <!-- .element: class="hidden" --> 
+
+<!-- Note -->
 As an application writes data to a Ceph cluster, it always talks to a
 single OSD (the **primary OSD**), which then takes care of replicating
 the write to the other, non-primary OSDs. Until that write is
@@ -58,6 +63,7 @@ exceptions, you should not attempt to do something like this:
 
 
 <!-- .slide: data-background-image="images/stretched-cluster-1.svg" data-background-size="contain" -->
+## Stretched cluster (narrow) <!-- .element: class="hidden" --> 
 
 <!-- Note -->
 This approach is known as “stretched cluster” and means that you’re
@@ -68,6 +74,7 @@ ensure that your latency stays within reasonable limits.
 
 
 <!-- .slide: data-background-image="images/stretched-cluster-2.svg" data-background-size="contain" -->
+## Stretched cluster (wide) <!-- .element: class="hidden" --> 
 
 <!-- Note -->
 Building stretched clusters for Ceph is, however, impossible once the
@@ -85,6 +92,7 @@ data on a continental, let alone intercontinental scale.
 
 
 <!-- .slide: data-background-image="images/multiple-clusters.svg" data-background-size="contain" -->
+## Multiple distributed Ceph clusters <!-- .element: class="hidden" --> 
 
 <!-- Note -->
 So this is why, for long-distance replication, we must take a
@@ -101,3 +109,8 @@ capability *wasn’t* RBD, it was RADOS Gateway (rgw). In Ceph Dumpling
 RADOS Gateway, however, deals only with RESTful object data, and we
 needed something to also replicate RBD block data, which we got also
 in Jewel: RBD mirroring.
+
+So, what we’d like to get is an RBD image whose changes are
+*asynchronously* applied in a remote location. To get that capability,
+we need to *track and record* those changes in the first place. To do
+that, we use an RBD feature called **journaling.**
