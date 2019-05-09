@@ -2,6 +2,7 @@
   <head>
     <title>Geographical Redundancy with rbd-mirror</title>
     <meta name="generator" content="Cookiecutter (from gh:fghaas/cookiecutter-presentation)" />
+    <meta charset="UTF-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -37,33 +38,75 @@
       <div class="slides">
 	<!-- Repeat these as often as needed -->
         <section id="intro"
-                 data-markdown="markdown/00-intro.md"
+                 data-markdown="markdown/intro.md"
                  data-separator="^\n\n\n"
                  data-separator-vertical="^\n\n"
                  data-separator-notes="<!-- Note -->">
-	</section>
+        </section>
+
+        <section id="journaling"
+                 data-markdown="markdown/journaling.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="rbd-mirror-daemon"
+                 data-markdown="markdown/rbd-mirror-daemon.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="one-two-way-mirroring"
+                 data-markdown="markdown/one-two-way-mirroring.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="authentication"
+                 data-markdown="markdown/authentication.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="deployment"
+                 data-markdown="markdown/deployment.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="performance"
+                 data-markdown="markdown/performance.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="cloud"
+                 data-markdown="markdown/cloud.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
+
+        <section id="conclusion"
+                 data-markdown="markdown/conclusion.md"
+                 data-separator="^\n\n\n"
+                 data-separator-vertical="^\n\n"
+                 data-separator-notes="<!-- Note -->">
+        </section>
       </div>
     </div>
 
-    <script src="qrcodejs/qrcode.js"></script>
-    <script>
-/* Grab all links and iterate over them */
-document.querySelectorAll('a[href]').forEach(function(a) {
-  /* Find an element named #qrcode-id, and render the QR code there */
-  document.querySelectorAll('#qrcode-' + a.id).forEach(function(target) {
-    var qr = new QRCode(target, {
-        width : 500,
-        height : 500,
-        colorDark : "#000000",
-        colorLight : "rgba(255,255,255,0)",
-    });
-    qr.makeCode(a.href);
-  });
-});
-    </script>
-
-
     <script src="reveal.js/js/reveal.js"></script>
     <script src="reveal-config.js"></script>
+
+    <script src="qrcodejs/qrcode.js"></script>
+    <script src="qrcode-replace.js"></script>
   </body>
 </html>
+

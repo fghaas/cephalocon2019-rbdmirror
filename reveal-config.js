@@ -34,9 +34,5 @@ Reveal.initialize({
 
         { src: 'reveal.js/plugin/multiplex/client.js', async: true },
 
-
-
-        { src: 'reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } },
-
     ]
 });
