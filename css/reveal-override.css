@@ -16,3 +16,11 @@ body:after {
     bottom: 2em;
     right: 2em;
 }
+
+.hidden {
+    display: none;
+}
+
+.overview .hidden {
+    display: inherit;
+}
