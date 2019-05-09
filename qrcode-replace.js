@@ -1,13 +1,13 @@
-/* Grab all links and iterate over them */
-document.querySelectorAll('a[href]').forEach(function(a) {
-  /* Find an element named #qrcode-id, and render the QR code there */
-  document.querySelectorAll('#qrcode-' + a.id).forEach(function(target) {
-    var qr = new QRCode(target, {
-        width : 500,
-        height : 500,
-        colorDark : "#000000",
-        colorLight : "rgba(255,255,255,0)",
+Reveal.addEventListener('ready', function(event) {
+    /* Grab all links with class="qrcode" and iterate over them */
+    document.querySelectorAll('a.qrcode').forEach(function(a) {
+	a.text = '';
+	var qr = new QRCode(a, {
+	    text: a.href,
+            width : 400,
+            height : 400,
+            colorDark : "#000000",
+            colorLight : "rgba(255,255,255,0)",
+	});
     });
-    qr.makeCode(a.href);
-  });
 });
