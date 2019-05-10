@@ -1,6 +1,9 @@
 # One-way and two-way mirroring
 
 <!-- Note --> 
+In one-way mirroring, there’s `rbd-mirror` daemons in only one
+cluster.
+
 In two-way mirroring, we have two separate Ceph clusters, **each**
 with an `rbd-mirror` daemon of its own, and the ability to replicate
 either in one direction, or the other.
