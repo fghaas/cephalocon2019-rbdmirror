@@ -24,3 +24,7 @@ body:after {
 .overview .hidden {
     display: inherit;
 }
+
+td, th {
+    font-size: 200%;
+}
