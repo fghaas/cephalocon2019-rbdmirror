@@ -81,12 +81,13 @@ ensure that your latency stays within reasonable limits.
 Building stretched clusters for Ceph is, however, impossible once the
 speed of light becomes your problem. 
 
-Even in a theoretically perfect environment where **no** additional
-latency exists other than the latency of light to travel between two
-locations, 1 light-millisecond is a meager 299.8 kilometers. That
-means if your cluster locations are just 300 km apart, your latency
-increases tenfold versus a local Ethernet LAN. For 3000 km (a distance
-from here to Cairo) it’s 100-fold.
+Even in a theoretically perfect environment, where **no** additional
+latency exists other than that of light traveling in a straight-line
+fibre-optic link between the two locations, 1 light-millisecond is a
+meager 300 kilometers. That means if your cluster locations are just
+150 km apart, your round-trip time increases tenfold versus a local
+Ethernet LAN. For 1500 km (a distance from here to Berlin) it’s
+100-fold.
 
 So clearly, that’s not an option if you want to replicate your Ceph
 data on a continental, let alone intercontinental scale.
