@@ -84,8 +84,8 @@ speed of light becomes your problem.
 Even in a theoretically perfect environment, where **no** additional
 latency exists other than that of light traveling in a straight-line
 fibre-optic link between the two locations, 1 light-millisecond is a
-meager 300 kilometers. That means if your cluster locations are just
-150 km apart, your round-trip time increases tenfold versus a local
+meager 300 kilometers. That means if your cluster sites are just 150
+km apart, your round-trip time increases tenfold versus a local
 Ethernet LAN. For 1500 km (a distance from here to Berlin) it’s
 100-fold.
 
