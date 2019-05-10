@@ -104,13 +104,10 @@ level up, at one of the abstraction layers *on top of* RADOS. And,
 importantly, we’re doing the replication **asynchronously.**
 
 Now the first such Ceph application that got asynchronous replication
-capability *wasn’t* RBD, it was RADOS Gateway (rgw). In Ceph Dumpling
-(0.67, 2013) we got *Federated Gateways,* and then in Jewel (10.2,
-2016), it was reimplemented as *Multi-Site RGW*. 
-
-RADOS Gateway, however, deals only with RESTful object data, and we
-needed something to also replicate RBD block data, which we got also
-in Jewel: RBD mirroring.
+capability *wasn’t* RBD, it was RADOS Gateway (rgw). RADOS Gateway,
+however, deals only with RESTful object data, and we needed something
+to also replicate RBD block data, which we got in Jewel: RBD
+mirroring.
 
 So, what we’d like to get is an RBD image whose changes are
 *asynchronously* applied in a remote location. To get that capability,
