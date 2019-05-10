@@ -12,8 +12,6 @@ Reveal.initialize({
 
     transition: 'fade',
 
-    totalTime: 42*60,
-
     multiplex: {
         secret: null,
         id: 'fbef2915cd793511',
