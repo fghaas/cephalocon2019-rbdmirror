@@ -12,7 +12,7 @@ Reveal.initialize({
 
     transition: 'fade',
 
-
+    totalTime: 40*60,
 
     multiplex: {
         secret: null,

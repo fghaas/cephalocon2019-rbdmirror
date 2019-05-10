@@ -213,31 +213,45 @@ deployment automation facilities do about `rbd-mirror`.
 
 ## Deployment Automation Support <!-- .element class="hidden" -->
 
-|                                  | ceph-ansible | Juju | DeepSea | Rook
+|                                  | ceph‑ansible | Juju | DeepSea | Rook
 | -------------------------------- | ------------ | ---- | ------- | ----
-| Create and deploy local keyrings | ✓            | ✓    | ✗       | ✓ 
-| Fetch remote config and keyrings | ✗            | ✓    | ✗       | ? 
-| Deploy `rbd-mirror` daemon       | ✓            | ✓    | ✗       | ✓ 
-| Connect peers                    | ✓            | ✓    | ✗       | ✗ 
-| Enable, disable, promote, demote | ✗            | ✓    | ✗       | ✗ 
+| Create and deploy local keyrings | ✓            | ✓    | ✗       | ✓
+| Fetch remote config and keyrings | ✓ish         | ✓    | ✗       | ?
+| Deploy `rbd-mirror` daemon       | ✓            | ✓    | ✗       | ✓
+| Connect peers                    | ✓            | ✓    | ✗       | ✗
+| Enable, disable, promote, demote | ✗            | ✓    | ✗       | ✗
 
 <!-- Note -->
-* **`ceph-ansible`** lets you create and deploy `rbd-mirror` credentials,
-  capabilities and keyrings, deploys the `rbd-mirror` daemon, and can
-  automatically connect your cluster to a remote one. It does not
-  fetch remote keys or build a stump remote-cluster client
-  configuration. Promotion and demotion of individual images are
-  outside `ceph-ansible`’s scope.
+* **`ceph-ansible`** lets you create and deploy `rbd-mirror`
+  credentials, capabilities and keyrings; it deploys the `rbd-mirror`
+  daemon, and can automatically connect your cluster to a remote
+  one.
+
+  It does also help you with keyring exchange and remote-cluster
+  client configuration, so it does give you the tools to fully
+  automate an rbd-mirror cluster pair, but [only if you thought to set
+  two different cluster names from the
+  get-go](https://www.sebastien-han.fr/blog/2016/05/09/Bootstrap-two-Ceph-and-configure-RBD-mirror-using-Ceph-Ansible/).
+  (If one of your clusters is already deployed and uses the name
+  `ceph`, manual intervention is required.)
+
+  Promotion and demotion of individual images are outside
+  `ceph-ansible`’s scope.
 
 * The **Juju** [`ceph-rbd-mirror`
-  charm](https://jaas.ai/ceph-rbd-mirror) can automate the entire
+  charm](https://jujucharms.com/ceph-rbd-mirror) can automate the entire
   `rbd-mirror` lifecycle, including key exchange (with `juju
   offer`/`juju consume`), and failover and failback (with `juju
   run-action`).
 
-* DeepSea currently appears to support no rbd-mirror automation
-  facilities.
-  
-* Rook is capable of managing `rbd-mirror` instances and configuring
-  them, but relies on an administrator running `rbd mirror` commands
+* [DeepSea](https://github.com/SUSE/DeepSea) currently supports
+  support no rbd-mirror automation facilities. However, if you happen
+  to be on SUSE Enterprise Storage (SES, which is deployed with
+  DeepSea), then your supported RBD Mirroring deployment automation
+  facility in SES 6 and later is the included post-Nautilus Ceph
+  dashboard.
+
+* [Rook](https://rook.io/docs/rook/master/ceph-storage.html) is
+  capable of managing `rbd-mirror` instances and configuring them, but
+  currently relies on an administrator running `rbd mirror` commands
   for peer connection and pool and image actions.
