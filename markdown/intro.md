@@ -1,3 +1,4 @@
+<!-- .slide: data-timing="90" -->
 # Geographical Redundancy with rbd-mirror
 Best practices, performance recommendations, and pitfalls
 

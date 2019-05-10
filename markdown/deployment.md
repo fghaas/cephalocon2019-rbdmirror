@@ -211,6 +211,7 @@ probably won’t want to do, let’s take a quick look at what individual
 deployment automation facilities do about `rbd-mirror`.
 
 
+<!-- .slide: data-timing="140" -->
 ## Deployment Automation Support <!-- .element class="hidden" -->
 
 |                                  | ceph‑ansible | Juju | DeepSea | Rook
