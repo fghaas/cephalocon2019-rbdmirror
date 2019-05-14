@@ -50,8 +50,8 @@ configure the `rbd_image_features` option to include it); either you
 or something acting on your behalf must enable it. The `rbd` utility
 allows you to do that with `rbd feature enable`.
 
-You can, of course, also enable journaling in the course of *creating*
-the image in the first place. To so, use:
+
+## Enabling journaling on a new image <!-- .element: class="hidden" --> 
 
 ```
 rbd create \
@@ -59,6 +59,25 @@ rbd create \
   --size <size> \
   <pool>/<image>
 ```
+```
+rbd import \
+  --image-feature exclusive-lock,journaling \
+  <file> \
+  <pool>/<image>
+```
+
+<!-- Note --> 
+You can, of course, also enable journaling in the course of *creating*
+the image in the first place. To do so, you’d use either `rbd create` or
+`rbd import` with the `--image-feature` flag. You’ll need to specify
+the `journaling` feature itself, and the `exclusive-lock` feature that
+it depends upon.
+
+Note that `--image-feature` overrides the default feature set, so with
+the commands shown here you’ll *only* get `journaling` and
+`exclusive-lock`. You *probably* want to really set `--image-feature
+layering,exclusive-lock,object-map,fast-diff,deep-flatten,journaling`
+instead (omitted here for brevity).
 
 
 ## rados output for journal-enabled RBDs <!-- .element: class="hidden" --> 
