@@ -82,7 +82,7 @@ its attachment data).
 
 ## Semi-automated?
 
-Yes, sort of.
+Yes, sort of.  <!-- .element: class="fragment" -->
 
 If you design really well.  <!-- .element: class="fragment" -->
 
