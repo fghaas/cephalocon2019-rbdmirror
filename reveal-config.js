@@ -20,7 +20,6 @@ Reveal.initialize({
         url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
     },
 
-
     // Optional libraries used to extend on reveal.js
     dependencies: [
         { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -34,5 +33,7 @@ Reveal.initialize({
 
         { src: 'reveal.js/plugin/multiplex/client.js', async: true },
 
+	{ src: '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js' },
+	{ src: 'reveal.js-plugins/chart/csv2chart.js' },
     ]
 });
