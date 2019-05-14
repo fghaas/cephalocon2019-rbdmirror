@@ -80,13 +80,38 @@ layering,exclusive-lock,object-map,fast-diff,deep-flatten,journaling`
 instead (omitted here for brevity).
 
 
-## rados output for journal-enabled RBDs <!-- .element: class="hidden" --> 
+<!-- .slide: data-background-color="#121314" data-timing="30" -->
+## rados output for journal-enabled RBDs <!-- .element: class="hidden" -->
 
-```
-```
+<iframe src="https://asciinema.org/a/DZkygWMvsZTvL19ZcYodJLyBf/embed?size=big&rows=19&cols=80&theme=tango" class="stretch"></iframe>
 
 <!-- Note --> 
-Once journaling is enabled, writes on the device result in both data
-and journal objects in the RBD pool. I should perhaps reiterate at
-this point that there is no server-side magic that’s happening here,
-it’s just `librbd` that writes both types of objects.
+Here’s what happens if you enable journaling: 
+
+* You create or import an image with journaling enabled (in this case
+  we import),
+* then you can use `rbd info` to read back that the feature is indeed
+  enabled,
+* and if we then list the RADOS objects belonging to that image, we
+  see header and data and object-map objects as usual, *and also*
+  journal objects.
+
+
+<!-- .slide: data-background-color="#121314" data-timing="30" -->
+## rados output for journal-disabled RBDs <!-- .element: class="hidden" -->
+
+<iframe src="https://asciinema.org/a/OUQEOvsLCj4fKXqz5JMbpQk3Y/embed?size=big&rows=19&cols=80&theme=tango" class="stretch"></iframe>
+
+<!-- Note --> 
+And disabling journaling is just as easy:
+
+* You use `rbd feature disable` to turn journaling off,
+* then you can use `rbd info` to verify that the feature is now
+  disabled,
+* and when you rerun your listing of RADOS objects associated with the
+  image, you’ll notice that the journal objects are gone, and only the
+  data and header and object-map objects remain.
+
+I should perhaps reiterate at this point that there is no server-side
+magic that’s happening here, it’s just `librbd` that writes both types
+of objects.
