@@ -28,3 +28,7 @@ body:after {
 td, th {
     font-size: 200%;
 }
+
+iframe {
+    border: none;
+}
