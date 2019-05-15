@@ -1,4 +1,4 @@
-<!-- .slide: data-timing="-1" -->
+<!-- .slide: data-timing="1" -->
 ## rbd-bench script <!-- .element: class="hidden" -->
 
 ```bash
@@ -25,7 +25,7 @@ benchmark data — first against an image with no journaling, then one
 with journaling enabled.
 
 
-<!-- .slide: data-timing="-1" -->
+<!-- .slide: data-timing="1" -->
 ## rbd-bench output to CSV <!-- .element: class="hidden" -->
 
 ```bash
@@ -46,3 +46,53 @@ Turns `rbd bench` output into CSV
 If you ever find yourself in the position of parsing `rbd bench`
 output it to something that a spreadsheet can grok, please feel free
 to use this “one”-liner.
+
+
+## Benchmarks with mirroring
+
+<!-- Note -->
+Here are some benchmarks with mirroring enabled. These were taken on
+virtual machines, with FileStore no less, thus the absolute numbers
+are *completely* irrelevant, but the relative comparison
+vs. non-journaled and journaled but unmirrored devices should still be useful.
+
+<!-- .slide: data-timing="1" -->
+### Random read throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-read-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Sequential read IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-read-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Random read IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-read-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Sequential write throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-write-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Random write throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-write-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Sequential write IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-write-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="1" -->
+### Random write IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-write-rand.csv"></canvas>
