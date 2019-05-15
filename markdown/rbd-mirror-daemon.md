@@ -1,3 +1,4 @@
+<!-- .slide: data-timing="15" -->
 # The `rbd-mirror` daemon
 
 <!-- Note -->
@@ -9,7 +10,7 @@
 So what does that mean?
 
 
-<!-- .slide: data-background-image="images/watch.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/watch.svg" data-background-size="contain" data-timing="20" -->
 ## Watch journal updates <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -23,7 +24,7 @@ the `rbd/replicated` image in the `left` cluster (this is called
 **watching** the journal).
 
 
-<!-- .slide: data-background-image="images/replay.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/replay.svg" data-background-size="contain" data-timing="20" -->
 ## Replay journal updates <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -49,5 +50,7 @@ non-primary sites. But, in doing so, every site needs its own
 
 What we **cannot** do, in the configuration as shown, is reverse the
 direction of replication, for the simple reason that the `left` site
-doesn’t have an `rbd-mirror` of its own. For that, we need **two-way
-mirroring**.
+doesn’t have an `rbd-mirror` of its own. 
+
+This mode is called **one-way** mirroring, and to be able to reverse
+the replication, we need **two-way mirroring**.

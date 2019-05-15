@@ -28,3 +28,15 @@ body:after {
 td, th {
     font-size: 200%;
 }
+
+iframe {
+    border: none;
+}
+
+.fragment.visible {
+    opacity: 0.4 !important;
+}
+
+.fragment.current-fragment {
+    opacity: 1 !important;
+}

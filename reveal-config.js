@@ -18,7 +18,23 @@ Reveal.initialize({
         url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
     },
 
-
+    chart: {
+        defaults: {
+            global: {
+                animation: null,
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        fontSize: 24,
+                        fontColor: 'black',
+                    }
+                }
+            },
+        },
+        line: {
+            borderColor: [ "rgba(0,0,0,0.8)" , "rgba(220,120,120,1)", "rgba(20,120,220,.8)" ],
+        },
+    },
     // Optional libraries used to extend on reveal.js
     dependencies: [
         { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -32,5 +48,7 @@ Reveal.initialize({
 
         { src: 'reveal.js/plugin/multiplex/client.js', async: true },
 
+        { src: '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js' },
+        { src: 'reveal.js-plugins/chart/csv2chart.js' },
     ]
 });

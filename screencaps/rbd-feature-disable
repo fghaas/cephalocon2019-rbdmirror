@@ -1,0 +1,29 @@
+Script started on Tue 14 May 2019 03:07:36 PM CEST
+[01;32m[01;34m~[00m$ sudo rbd feature disable bench/random-small journaling
+[01;32m[01;34m~[00m$ 
+[01;32m[01;34m~[00m$ 
+[01;32m[01;34m~[00m$ sudo rbd info bench/random-small
+rbd image 'random-small':
+	size 32MiB in 8 objects
+	order 22 (4MiB objects)
+	block_name_prefix: rbd_data.6d97c26b8b4567
+	format: 2
+	features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
+	flags: 
+	create_timestamp: Tue May 14 15:06:32 2019
+[01;32m[01;34m~[00m$ 
+[01;32m[01;34m~[00m$ 
+[01;32m[01;34m~[00m$ sudo rados -p bench ls | grep 6d97c26b8b4567
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000006
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000002
+rbd_object_map.[01;31m[K6d97c26b8b4567[m[K
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000003
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000004
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000000
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000007
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000005
+rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000001
+rbd_header.[01;31m[K6d97c26b8b4567[m[K
+[01;32m[01;34m~[00m$ exit
+
+Script done on Tue 14 May 2019 03:08:13 PM CEST

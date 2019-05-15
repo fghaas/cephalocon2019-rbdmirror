@@ -9,12 +9,12 @@ Florian Haas | [@xahteiwi](https://twitter.com/xahteiwi)
 Cephalocon 2019 | 2019-05-20
 
 <!-- Note --> 
+rbd-mirror is a Ceph feature that’s been around for 3 years — since
+the Jewel release — as a means of asynchronously replicating RADOS
+block device (RBD) content to a remote Ceph cluster.
 
-rbd-mirror was introduced in the Ceph Jewel release, and it is a means
-of asynchronously replicating RADOS block device (RBD) content to a
-remote Ceph cluster.
-
-That's all fair and good, but how do I use it?
+That's all fair and good, I hear you cry, but how do I use the damn
+thing?
 
 * How exactly does the rbd-mirror daemon work?
 * What's the difference between one-way and two-way mirroring?
@@ -26,9 +26,11 @@ That's all fair and good, but how do I use it?
   OpenStack, so I can achieve true site-to-site redundancy and
   disaster recovery capability for persistent volumes?
 
-This talk gives a run-down of the ins and outs of RBD mirroring,
-suggests best practices to deploy it, outlines performance
-considerations, and highlights pitfalls to avoid along the way.
+Well it’s great you asked, because that’s what this talk is about.
+I’m about to give you a run-down of the ins and outs of RBD mirroring,
+I’ll suggests best practices to deploy it, I’ll outline performance
+considerations, and I’ll try to highlight traps and pitfalls to avoid
+along the way.
 
 My name is Florian, I’ve worked with Ceph since about 2012, and my
 Twitter handle is here on this slide, and also on all other slides in
@@ -38,6 +40,7 @@ get to your question during the talk — if not, I’ll reply to your
 question directly on Twitter, afterwards.
 
 
+<!-- .slide: data-timing="20" -->
 ## What’s this good for?
 
 <!-- Note -->
