@@ -112,12 +112,6 @@ really a factor of 10 for 4K writes, it doesn’t merely look like that.
 The same pattern expectedly manifests itself for random write
 throughput.
 
-Don’t get thrown here by the fact that the black line looks taller; in
-fact the scale of the Y axis has changed versus the previous chart —
-there is really not much difference from sequential writes here, apart
-from an odd discrepancy around the 8MB mark (which is probably a
-fluke).
-
 
 <!-- .slide: data-timing="15" -->
 ### Sequential write IOPS
