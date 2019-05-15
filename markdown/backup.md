@@ -56,6 +56,13 @@ virtual machines, with FileStore no less, thus the absolute numbers
 are *completely* irrelevant, but the relative comparison
 vs. non-journaled and journaled but unmirrored devices should still be useful.
 
+
+<!-- .slide: data-timing="1" -->
+### Sequential read throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-read-seq.csv"></canvas>
+
+
 <!-- .slide: data-timing="1" -->
 ### Random read throughput
 (Bytes/s in terms of I/O size)
