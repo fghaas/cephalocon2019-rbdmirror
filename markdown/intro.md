@@ -71,7 +71,7 @@ entire application. This is why, with very few and clearly delineated
 exceptions, you should not attempt to do something like this:
 
 
-<!-- .slide: data-background-image="images/stretched-cluster-1.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/map.svg" data-background-size="cover" -->
 ## Stretched cluster (narrow) <!-- .element: class="hidden" --> 
 
 <!-- Note -->
