@@ -13,7 +13,7 @@ As essentially all my presentations, this deck is Creative Commons
 licensed, under the terms of the CC Attribution-ShareAlike license.
 
 
-<!-- .slide: data-timing="300" -->
+<!-- .slide: data-timing="180" -->
 ## Slides URL <!-- .element: class="hidden" -->
 <https://fghaas.github.io/cephalocon2019-rbdmirror>
 
