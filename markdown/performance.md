@@ -51,7 +51,7 @@ non-journaled RBD.
 
 ### Sequential read throughput
 (Bytes/s in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/throughput-read-seq.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/throughput-read-seq.csv"></canvas>
 
 <!-- Note -->
 Now what you see on all these charts is the I/O size on the x axis,
@@ -70,7 +70,7 @@ for the throughput of sequential reads, ...
 <!-- .slide: data-timing="15" -->
 ### Random read throughput
 (Bytes/s in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/throughput-read-rand.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/throughput-read-rand.csv"></canvas>
 
 <!-- Note -->
 ... the throughput of random reads, ...
@@ -79,7 +79,7 @@ for the throughput of sequential reads, ...
 <!-- .slide: data-timing="15" -->
 ### Sequential read IOPS
 (IOPS in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/iops-read-seq.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/iops-read-seq.csv"></canvas>
 
 <!-- Note -->
 ... and also read latency, and hence IOPS, are not extremely heavily
@@ -89,7 +89,7 @@ impacted by journaling, whether we’re dealing with sequential ...
 <!-- .slide: data-timing="15" -->
 ### Random read IOPS
 (IOPS in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/iops-read-rand.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/iops-read-rand.csv"></canvas>
 
 <!-- Note -->
 ... or random read IOPS.
@@ -98,7 +98,7 @@ impacted by journaling, whether we’re dealing with sequential ...
 <!-- .slide: data-timing="45" -->
 ### Sequential write throughput
 (Bytes/s in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/throughput-write-seq.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/throughput-write-seq.csv"></canvas>
 
 <!-- Note -->
 With writes, however, we’re really in for a bit of an unpleasant
@@ -121,7 +121,7 @@ journaling.
 <!-- .slide: data-timing="15" -->
 ### Random write throughput
 (Bytes/s in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/throughput-write-rand.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/throughput-write-rand.csv"></canvas>
 
 <!-- Note -->
 The same pattern expectedly manifests itself for random write
@@ -131,7 +131,7 @@ throughput.
 <!-- .slide: data-timing="15" -->
 ### Sequential write IOPS
 (IOPS in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/iops-write-seq.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/iops-write-seq.csv"></canvas>
 
 <!-- Note -->
 For sequential write IOPS, we’re also seeing that nine-tenths
@@ -141,7 +141,7 @@ reduction for small writes.
 <!-- .slide: data-timing="15" -->
 ### Random write IOPS
 (IOPS in terms of I/O size)
-<canvas data-chart="line" data-chart-src="benchmarks/csv/aggregate/iops-write-rand.csv"></canvas>
+<canvas data-chart="line" data-chart-src="benchmarks/hardware/csv/aggregate/iops-write-rand.csv"></canvas>
 
 <!-- Note -->
 And again for random writes, it looks just a little less than what

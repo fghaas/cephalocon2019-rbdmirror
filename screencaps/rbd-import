@@ -1,40 +1,0 @@
-Script started on Tue 14 May 2019 03:06:27 PM CEST
-[01;32m[01;34m~[00m$ sudo rbd import \
->   --image-feature layering,exclusive-lock,object-map,fast-diff,deep-flatten,jo urnaling \
->   random-small.bin \
->   bench/random-small
-Importing image: 12% complete...Importing image: 25% complete...Importing image: 37% complete...Importing image: 50% complete...Importing image: 62% complete...Importing image: 75% complete...Importing image: 87% complete...Importing image: 100% complete...done.
-[01;32m[01;34m~[00m$ 
-[01;32m[01;34m~[00m$ 
-[01;32m[01;34m~[00m$ sudo rbd info bench/random-small
-rbd image 'random-small':
-	size 32MiB in 8 objects
-	order 22 (4MiB objects)
-	block_name_prefix: rbd_data.6d97c26b8b4567
-	format: 2
-	features: layering, exclusive-lock, object-map, fast-diff, deep-flatten, journaling
-	flags: 
-	create_timestamp: Tue May 14 15:06:32 2019
-	journal: 6d97c26b8b4567
-	mirroring state: disabled
-[01;32m[01;34m~[00m$ 
-[01;32m[01;34m~[00m$ 
-[01;32m[01;34m~[00m$ sudo rados -p bench ls | grep 6d97c26b8b4567
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000006
-journal_data.15.[01;31m[K6d97c26b8b4567[m[K.1
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000002
-rbd_object_map.[01;31m[K6d97c26b8b4567[m[K
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000003
-journal_data.15.[01;31m[K6d97c26b8b4567[m[K.3
-journal.[01;31m[K6d97c26b8b4567[m[K
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000004
-journal_data.15.[01;31m[K6d97c26b8b4567[m[K.0
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000000
-journal_data.15.[01;31m[K6d97c26b8b4567[m[K.2
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000007
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000005
-rbd_data.[01;31m[K6d97c26b8b4567[m[K.0000000000000001
-rbd_header.[01;31m[K6d97c26b8b4567[m[K
-[01;32m[01;34m~[00m$ exit
-
-Script done on Tue 14 May 2019 03:07:07 PM CEST

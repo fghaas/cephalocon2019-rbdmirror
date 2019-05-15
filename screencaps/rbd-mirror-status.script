@@ -1,0 +1,60 @@
+Script started on Wed May 15 19:49:48 2019
+[r[m[2J[H[?7h[?1;4;6l[?1049h[4l[?1h=[0m(B[1;24r[H[2J[23B[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:49[38;5;2m][H[39m[49m[H[2J[8Cmirroring global id: 2fb96834-088e-4b3d-9784-5b087440b080[2;9Hmirroring primary: true
+[1m[38;5;4m[94m~[0m$
+[1m[38;5;4m[94m~[0m$
+[1m[38;5;4m[94m~[0m$ sudo rbd --cluster right info mirror/mycirros
+rbd image 'mycirros':[7;9Hsize 2GiB in 512 objects[8;9Horder 22 (4MiB objects)[9;9Hblock_name_prefix: rbd_data.10c5643c9869[40D
+format: 2[9D
+features: layering, exclusive-lock, object-map, fast-diff, deep-flatten, journaling
+flags:[6D
+create_timestamp: Tue Nov 27 15:44:42 2018[42D
+parent: mirror/cirros@snap[26D
+overlap: 39.2MiB[16D
+journal: 10c5643c9869[21D
+mirroring state: enabled[24D
+mirroring global id: 2fb96834-088e-4b3d-9784-5b087440b080[57D
+mirroring primary: false
+[1m[38;5;4m[94m~[0m$
+[1m[38;5;4m[94m~[0m$
+[1m[38;5;4m[94m~[0m$
+[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:49[38;5;2m][23;3H[39m[49m
+[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:49[38;5;2m][23;3H[39m[49m [H[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[H[1m[38;5;2m[92m[38;5;4m[94m~[0m$ sudo rbd --cluster left mirror image status mirror/mycirros
+[22B[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:50[38;5;2m][2;1H[39m[49mmycirros:
+  global_id:   2fb96834-088e-4b3d-9784-5b087440b080
+  state:       up+stopped
+  description: local image is primary
+  last_update: 2019-05-15 19:49:44
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ [K
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ 
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ sudo rbd --cluster right mirror image status mirror/mycirros
+mycirros:
+  global_id:   2fb96834-088e-4b3d-9784-5b087440b080
+  state:       up+replaying
+  description: replaying, master_position=[object_number=2, tag_tid=12, entry_tid=130], mirror_position=[object_number=2, tag_tid=12, entry_tid=130], entries_behind_master=0
+  last_update: 2019-05-15 19:49:58
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ [K[?1l>[7B[7m                                                                                [17;4H[27m[24;1H
+[?1049l[detached from 14517.pts-0.deploy]
+
+Script done on Wed May 15 19:50:14 2019

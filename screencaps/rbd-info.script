@@ -1,0 +1,39 @@
+Script started on Wed May 15 19:48:03 2019
+[r[m[2J[H[?7h[?1;4;6l[?1049h[4l[?1h=[0m(B[1;24r[H[2J[23B[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:48[38;5;2m][H[39m[49m[H[2J[1m[38;5;4m[94m~[0m$[23B[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:48[38;5;2m][1;3H[39m[49m[23B[7m[27m[38;5;2m[48;5;0m[92m[deploy[38;5;2m][            [38;5;7m[1m[38;5;0m[48;5;3m[90m 0*deploy [0m[38;5;7m[48;5;0m  1 left  2 right             [38;5;2m][[38;5;4m[94m2019-05-15 [38;5;7m[97m19:48[38;5;2m][1;3H[39m[49m sudo rbd --cluster left info mirror/mycirros
+rbd image 'mycirros':
+[8Csize 2GiB in 512 objects
+[8Corder 22 (4MiB objects)
+[8Cblock_name_prefix: rbd_data.162266334873
+[8Cformat: 2
+[8Cfeatures: layering, exclusive-lock, object-map, fast-diff, deep-flatten, journaling
+[8Cflags: 
+[8Ccreate_timestamp: Tue Nov 27 21:39:42 2018
+[8Cparent: mirror/cirros@snap
+[8Coverlap: 39.2MiB
+[8Cjournal: 162266334873
+[8Cmirroring state: enabled
+[8Cmirroring global id: 2fb96834-088e-4b3d-9784-5b087440b080
+[8Cmirroring primary: true
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ [K
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ 
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ sudo rbd --cluster right info mirror/mycirros
+rbd image 'mycirros':
+[8Csize 2GiB in 512 objects
+[8Corder 22 (4MiB objects)
+[8Cblock_name_prefix: rbd_data.10c5643c9869[1;23r[23;1H
+[8Cformat: 2
+[8Cfeatures: layering, exclusive-lock, object-map, fast-diff, deep-flatten, journaling
+[8Cflags: 
+[8Ccreate_timestamp: Tue Nov 27 15:44:42 2018
+[8Cparent: mirror/cirros@snap
+[8Coverlap: 39.2MiB
+[8Cjournal: 10c5643c9869
+[8Cmirroring state: enabled
+[8Cmirroring global id: 2fb96834-088e-4b3d-9784-5b087440b080
+[8Cmirroring primary: false
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ [K
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ 
+[1m[38;5;2m[92m[38;5;4m[94m~[0m$ [1;24r[?1l>[24;1H[7m                                                                                [27m[24;1H
+[?1049l[detached from 14517.pts-0.deploy]
+
+Script done on Wed May 15 19:48:36 2019
