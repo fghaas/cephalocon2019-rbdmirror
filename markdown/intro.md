@@ -50,7 +50,7 @@ that is useful, we’ll have to back up a bit and look at how
 replication in a Ceph cluster *normally* works.
 
 
-<!-- .slide: data-background-image="images/cluster-replication.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/osd-replication.svg" data-background-size="contain" -->
 ## Standard Ceph replication <!-- .element: class="hidden" --> 
 
 <!-- Note -->
@@ -60,6 +60,11 @@ the write to the other, non-primary OSDs. Until that write is
 completed on *all* OSDs, the application considers it not completed at
 all. This is what we refer to as **synchronous** replication.
 
+
+<!-- .slide: data-background-image="images/osd-replication-slow.svg" data-background-size="contain" -->
+## Slow OSD <!-- .element: class="hidden" --> 
+
+<!-- Note -->
 Synchronous replication is, inherently, latency-critical. If just one
 OSD is slow, or slow *to get to*, then that potentially holds up your
 entire application. This is why, with very few and clearly delineated
