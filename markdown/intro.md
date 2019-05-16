@@ -87,7 +87,7 @@ should not attempt to do something like this:
 
 
 <!-- .slide: data-background-image="images/map.svg" data-background-size="cover" -->
-## Stretched cluster (narrow) <!-- .element: class="hidden" --> 
+## Stretched cluster <!-- .element: class="hidden" --> 
 
 <!-- Note -->
 This approach is known as “stretched cluster” and means that you’re
