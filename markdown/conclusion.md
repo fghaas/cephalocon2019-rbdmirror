@@ -31,7 +31,7 @@ they are there with my full notes.
 
 Lenz Grimmer  
 Kai Wagner  
-Hakim El-Hattab
+Hakim El-Hattab  
 Adam Spiers  
 Asvin Goel  
 OpenStreetMap  
@@ -47,8 +47,9 @@ feedback and input on portions of this talk.
 * [Adam Spiers](https://blog.adamspiers.org/) — [reveal.js pacing timer](https://github.com/hakimel/reveal.js/pull/1564)
 * [Asvin
   Goel](https://www.the-klu.org/faculty-research/resident-faculty/asvin-goel/)
-  — Chart.js integration with reveal.js
-* OpenStreetMap — map of Barcelona
+  — [Chart.js integration with
+  reveal.js](https://rajgoel.github.io/reveal.js-demos/chart-demo.html)
+* OpenStreetMap contributors — map of Barcelona
 
 And if there are no further questions, I thank you very much for your
 time, and I wish you an excellent afternoon. Thank you!
