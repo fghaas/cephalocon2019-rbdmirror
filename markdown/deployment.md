@@ -159,11 +159,21 @@ sequentially.
 
 <iframe src="https://asciinema.org/a/lBXz520XopDyZKLJeCYynrXir/embed?size=big&rows=19&cols=80&theme=tango&loop=1" class="stretch"></iframe>
 
+<!-- Note -->
+Here’s just a little looping screencast of what `rbd info` looks like
+on a mirrored image, showing you the `journaling` flag, the `mirroring
+state`, and whether or not the image is primary or not (more on that
+in a second).
 
 <!-- .slide: data-background-color="#121314" data-timing="15" -->
 ## rbd mirror status <!-- .element: class="hidden" -->
 
 <iframe src="https://asciinema.org/a/vnN6Krhi5zax4YjJTob7jEiUe/embed?size=big&rows=19&cols=80&theme=tango&loop=1" class="stretch"></iframe>
+
+<!-- Note -->
+And another, with `rbd mirror status`, that has some more information
+about the status, such as the current state that the journal is
+replaying at.
 
 
 ## Demotion
@@ -207,6 +217,12 @@ In that case, you can force promotion with the `--force` option.
 However, in case of the peer site subsequently recovering, there is
 no automated mechanism to reconcile the image content, and you will
 need to resynchronize its contents with `rbd mirror image resync`.
+
+I do have two more screencasts in my backup slides, where I boot Qemu
+off of an RBD image, write some data, demote the image, promote on
+another cluster and boot it there, but I’ll get to those at the end if
+we have time — and if we do not, they’re available online at the link
+I showed you and will show you again later on.
 
 
 ## Deployment Automation
