@@ -40,14 +40,15 @@ get to your question during the talk — if not, I’ll reply to your
 question directly on Twitter, afterwards.
 
 
-<!-- .slide: data-timing="20" -->
-## What’s this good for?
+<!-- .slide: data-timing="15" -->
+## Why RBD mirroring?
 
 <!-- Note -->
-RBD mirroring serves the purpose of **asynchronously** replicating
-data from one Ceph cluster to another. Now to understand how and why
-that is useful, we’ll have to back up a bit and look at how
-replication in a Ceph cluster *normally* works.
+What’s RBD mirroring good for? RBD mirroring serves the purpose of
+**asynchronously** replicating data from one Ceph cluster to another.
+
+Now to understand how and why that is useful, we’ll have to back up a
+bit and look at how replication in a Ceph cluster *normally* works.
 
 
 <!-- .slide: data-background-image="images/osd-replication.svg" data-background-size="contain" -->
@@ -77,28 +78,57 @@ exceptions, you should not attempt to do something like this:
 <!-- Note -->
 This approach is known as “stretched cluster” and means that you’re
 operating a single Ceph cluster, stretched across several
-geographically separated locations or “sites.” You should only do this
-if you have full control over your site-to-site links, and you can
-ensure that your latency stays within reasonable limits.
+physically separated locations or “sites.” 
+
+You should only do this if you have full control over your
+site-to-site links, and you can ensure that your latency stays within
+reasonable limits. Normally, this is only true for Ceph clusters where
+all nodes are within the same city, **and** where you have dedicated
+fiber connections between them.
 
 
-<!-- .slide: data-background-image="images/stretched-cluster-2.svg" data-background-size="contain" -->
-## Stretched cluster (wide) <!-- .element: class="hidden" --> 
+<!-- .slide: data-timing="55" -->
+### Why long-distance Ceph clusters don’t work <!-- .element: class="hidden" --> 
 
-<!-- Note -->
-Building stretched clusters for Ceph is, however, impossible once the
-speed of light becomes your problem. 
+Ethernet RTT ≈ 0.1 ms <!-- .element: class="fragment" --> 
 
-Even in a theoretically perfect environment, where **no** additional
-latency exists other than that of light traveling in a straight-line
-fibre-optic link between the two locations, 1 light-millisecond is a
-meager 300 kilometers. That means if your cluster sites are just 150
-km apart, your round-trip time increases tenfold versus a local
-Ethernet LAN. For 1500 km (a distance from here to Berlin) it’s
-100-fold.
+0.1 light-ms ≈ 30 km <!-- .element: class="fragment" --> 
 
-So clearly, that’s not an option if you want to replicate your Ceph
-data on a continental, let alone intercontinental scale.
+15 km = 30 km round-trip <!-- .element: class="fragment" --> 
+
+150 km ≈ 1 ms light round-trip <!-- .element: class="fragment" --> 
+
+150 km = 10× Ethernet RTT <!-- .element: class="fragment" --> 
+
+1,500 km = 100× Ethernet RTT <!-- .element: class="fragment" --> 
+
+<!-- Note --> 
+Building stretched clusters for Ceph becomes impossible once the speed
+of light becomes your problem.
+
+* Consider that a typical Ethernet round-trip time (ping time) is on
+  the order of 100µs or 0.1 milliseconds.
+
+* 0.1 *light*-milliseconds, that is to say the distance that light
+  travels in that time, is just 30 kilometers, or 
+  
+* a round-trip of a link that’s 15 km one-way.
+
+  And that’s assuming a theoretically perfect environment, where
+  there’s **no** additional latency, other than that of light
+  traveling — in a straight-line fibre-optic link — between the two
+  locations.
+
+* That means if your cluster sites are just 150 km apart — which would
+  be about from here to the French border —,
+  
+* your round-trip time increases tenfold versus a local Ethernet LAN.
+  
+* For 1500 km (a distance from here to Berlin) it’s 100-fold.
+
+So clearly, building stretched clusters is not an option if you want
+to replicate your Ceph data on a continental, let alone
+intercontinental scale.
 
 
 <!-- .slide: data-background-image="images/multiple-clusters.svg" data-background-size="contain" -->
@@ -111,11 +141,11 @@ low, RADOS level, from OSD to OSD, but instead we’re doing it one
 level up, at one of the abstraction layers *on top of* RADOS. And,
 importantly, we’re doing the replication **asynchronously.**
 
-Now the first such Ceph application that got asynchronous replication
+~Now the first such Ceph application that got asynchronous replication
 capability *wasn’t* RBD, it was RADOS Gateway (rgw). RADOS Gateway,
 however, deals only with RESTful object data, and we needed something
 to also replicate RBD block data, which we got in Jewel: RBD
-mirroring.
+mirroring.~
 
 So, what we’d like to get is an RBD image whose changes are
 *asynchronously* applied in a remote location. To get that capability,
