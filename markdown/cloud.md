@@ -7,7 +7,16 @@ myself qualified to talk about OpenStack more than any other cloud
 platform, that is what I’ll cover.
 
 
-## OpenStack Integration: Cinder volume replication <!-- .element: class="hidden" -->
+## Cinder replication
+
+```ini
+[ceph]
+...
+replication_device = backend_id:secondary,
+                     conf:/etc/ceph/secondary.conf,
+                     user:cinder,
+                     pool:volumes
+```
 
 <!-- Note --> 
 So first up, in OpenStack the definition is that any persistent data
@@ -101,7 +110,7 @@ OpenStack environment, and you’d have to get it right immediately —
 there’s practically no way to add this as an afterthought.
 
 
-<!-- .slide: data-timing="120" -->
+<!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" -->
 ## OpenStack Integration: Cinder AZs and pool-level mirroring <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -111,21 +120,40 @@ This is your checklist:
   run 2 OpenStack/Ceph sites, and a third one with just Galera, or you
   run 3 sites anyway, in the first place.
 
-* You need all OpenStack API services in all locations.
 
+<!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" -->
+
+<!-- Note --> 
+* You need all OpenStack API services in all locations. 
+* You’ll also need AZs by site for Nova, Cinder, and Neutron.
+
+
+<!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" -->
+
+<!-- Note --> 
 * You need compute nodes, and network gateway nodes plus independent
   provider uplinks in all locations, plus a dynamic routing protocol
   like BGP so you can arbitrarily announce routable IP addresses
   either here or there.
 
+
+<!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" -->
+
+<!-- Note --> 
 * You need management, tenant/tunnel, and storage L3 connectivity
   between all locations.
 
-* You need AZs by site for Nova, Cinder, and Neutron.
 
+<!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" -->
+
+<!-- Note --> 
 * Nova, Glance, and Cinder must all be wired up with their **local**
   Ceph cluster.
 
+
+<!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" -->
+
+<!-- Note --> 
 * You must set up two-way, pool-level replication for your Nova,
   Glance, and Cinder pools, and you must auto-enable journaling on all
   RBD images created in these pools.

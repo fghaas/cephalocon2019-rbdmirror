@@ -32,15 +32,15 @@ It then takes these journal updates, and applies them,
 chronologically, to a volume that is also named `rbd/replicated`,
 albeit in the `right` cluster (this is called **replaying** the journal).
 
-
-<!-- .slide: data-background-image="images/primary.svg" data-background-size="contain" -->
-## Primary vs. non-primary <!-- .element: class="hidden" -->
-
-<!-- Note --> 
 And in this configuration, the `rbd/replicated` image on `left` is
 known as the **primary** image, whereas the one on `right` is called
 the **non-primary** image.
 
+
+<!-- .slide: data-background-image="images/multiple-non-primary.svg" data-background-size="contain" -->
+## Primary vs. non-primary <!-- .element: class="hidden" -->
+
+<!-- Note --> 
 It should be noted that we can also have *multiple non-primary*
 images. This means that multiple `rbd-mirror` daemons (in multiple
 clusters) can watch the same image journal, and replay it

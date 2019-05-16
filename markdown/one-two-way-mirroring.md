@@ -9,7 +9,7 @@ with an `rbd-mirror` daemon of its own, and the ability to replicate
 either in one direction, or the other.
 
 
-<!-- .slide: data-background-image="images/primary.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/one-way.svg" data-background-size="contain" -->
 ## One-way replication <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -17,26 +17,20 @@ So this configuration (which we’ve seen before, with only one
 `rbd-mirror` in the `right` site) becomes...
 
 
-<!-- .slide: data-background-image="images/two-way-ltr.svg" data-background-size="contain" -->
-## Two-way replication (left to right) <!-- .element: class="hidden" -->
+<!-- .slide: data-background-image="images/two-way.svg" data-background-size="contain" -->
+## Two-way replication <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 ... this, where we have an `rbd-mirror` in both locations.
 
 Thus, **any image** can replicate either from `left` to `right` (in
 which case it is *primary* on `left` and *non-primary* on `right`), as
-before, or...
-
-
-<!-- .slide: data-background-image="images/two-way-rtl.svg" data-background-size="contain" -->
-## Two-way replication (right to left) <!-- .element: class="hidden" -->
-
-<!-- Note --> 
-... it can replicate from `right` to `left` (in which
+before, or it can replicate from `right` to `left` (in which
 case it is *non-primary* on `left` and *primary* on `right`).
 
 
-## Promotion and demotion
+<!-- .slide: data-background-image="images/two-way-flipped.svg" data-background-size="contain" -->
+## Promotion and demotion <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 Flipping an image’s direction of replication (and thus, its *primary*
