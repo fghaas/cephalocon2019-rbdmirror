@@ -32,6 +32,11 @@ Cinder backend configuration. This is totally supported for the RBD
 driver, so you **can** have Cinder interface with `rbd-mirror` managed
 volumes.
 
+
+<!-- .slide: data-background-image="images/one-openstack-two-ceph-clusters.svg" data-background-size="contain" -->
+## Redundant Ceph clusters for OpenStack <!-- .element: class="hidden" -->
+
+<!-- Note --> 
 This is somewhat under-documented (though
 [this](https://gist.github.com/jbernard/1d7359cac7641216659066b3860760d6)
 and
@@ -62,18 +67,20 @@ I maintain that this is handwaving, and I have yet to see it work,
 anywhere (but I’ll be happy to stand corrected). Because:
 
 
-## OpenStack cluster and colocated Ceph cluster failure <!-- .element: class="hidden" -->
+<!-- .slide: data-background-image="images/one-openstack-two-ceph-clusters.svg" data-background-size="contain" -->
+## One OpenStack, two Ceph clusters <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 
-Frequently, however, at least one of your Ceph clusters is co-located
-with an OpenStack cluster, so if this happens (namely some major issue
-taking out **both** your OpenStack cluster and the locally attached
-Ceph cluster — think a plane crash, or flooding), then you have your
-data in another site, but no way to restore service.
+Frequently, at least one of your Ceph clusters is co-located with an
+OpenStack cluster, as in this example. If some major issue happens to
+the `left` site and takes out **both** your OpenStack cluster and the
+locally attached Ceph cluster (think a plane crash, or flooding), then
+you have your data in another site, but no way to restore service.
 
 
-## OpenStack cluster and colocated Ceph cluster failure (with full redundancy) <!-- .element: class="hidden" -->
+<!-- .slide: data-background-image="images/two-openstack-two-ceph-clusters.svg" data-background-size="contain" -->
+## Two OpenStack, two Ceph clusters <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 
@@ -89,9 +96,9 @@ the volume with the UUID 78e176f2a66a4b1a9e0d08c2ba17fa18 (including
 its attachment data).
 
 
-## Semi-automated?
+## So, now way?
 
-Yes, sort of.  <!-- .element: class="fragment" -->
+Yes, there is. Sort of.  <!-- .element: class="fragment" -->
 
 If you design really well.  <!-- .element: class="fragment" -->
 
@@ -110,7 +117,7 @@ OpenStack environment, and you’d have to get it right immediately —
 there’s practically no way to add this as an afterthought.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" data-timing="15" -->
 ## OpenStack Integration: Cinder AZs and pool-level mirroring <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -121,14 +128,14 @@ This is your checklist:
   run 3 sites anyway, in the first place.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need all OpenStack API services in all locations. 
 * You’ll also need AZs by site for Nova, Cinder, and Neutron.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need compute nodes, and network gateway nodes plus independent
@@ -137,21 +144,21 @@ This is your checklist:
   either here or there.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need management, tenant/tunnel, and storage L3 connectivity
   between all locations.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * Nova, Glance, and Cinder must all be wired up with their **local**
   Ceph cluster.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You must set up two-way, pool-level replication for your Nova,
