@@ -86,7 +86,7 @@ This is why, with very few and clearly delineated exceptions, you
 should not attempt to do something like this:
 
 
-<!-- .slide: data-background-image="images/map.svg" data-background-size="cover" -->
+<!-- .slide: data-background-image="images/map.png" data-background-size="cover" -->
 ## Stretched cluster <!-- .element: class="hidden" --> 
 
 <!-- Note -->
