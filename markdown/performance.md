@@ -149,6 +149,69 @@ you’d intuitively expect, but it’s still quite significant for small
 writes.
 
 
+
+## Benchmarks with mirroring
+
+<!-- Note -->
+Here are some benchmarks with mirroring enabled. These were taken on
+virtual machines, with FileStore no less, thus the absolute numbers
+are *completely* irrelevant, but the relative comparison
+vs. non-journaled and journaled but unmirrored devices should still be
+useful.
+
+I’ll go through these really fast, because you’ll catch the gist of
+each chart really quickly. Color scheme is black for no journaling,
+red for journaling without mirroring, and blue for mirrored volumes.
+
+
+<!-- .slide: data-timing="5" -->
+### Sequential read throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-read-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Random read throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-read-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Sequential read IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-read-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Random read IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-read-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Sequential write throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-write-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Random write throughput
+(Bytes/s in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/throughput-write-rand.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Sequential write IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-write-seq.csv"></canvas>
+
+
+<!-- .slide: data-timing="5" -->
+### Random write IOPS
+(IOPS in terms of I/O size)
+<canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-write-rand.csv"></canvas>
+
+
 <!-- .slide: data-timing="45" -->
 ## Performance impact takeaway <!-- .element: class="hidden" -->
 Enable journaling selectively and for good reasons. <!-- .element: class="fragment" -->
@@ -172,3 +235,6 @@ Luminous on one specific set of hardware, but if you look up my slides
 after the talk, you’ll find my benchmark scripts that I built these
 charts with, and you can go ahead and reproduce (or refute) these
 findings on your own systems.
+
+But basically, journaling is *really* expensive, whereas mirroring
+doesn’t really add much on top of journaling.
