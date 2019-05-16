@@ -29,7 +29,8 @@ before, or it can replicate from `right` to `left` (in which
 case it is *non-primary* on `left` and *primary* on `right`).
 
 
-## Promotion and demotion
+<!-- .slide: data-background-image="images/two-way-flipped.svg" data-background-size="contain" -->
+## Promotion and demotion <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 Flipping an image’s direction of replication (and thus, its *primary*

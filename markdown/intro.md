@@ -41,11 +41,16 @@ question directly on Twitter, afterwards.
 
 
 <!-- .slide: data-timing="15" -->
-## Why RBD mirroring?
+## RBD mirroring
+
+... asynchronously replicates RBD data  
+from one Ceph cluster to another. <!-- .element: class="fragment" --> 
 
 <!-- Note -->
 What’s RBD mirroring good for? RBD mirroring serves the purpose of
-**asynchronously** replicating data from one Ceph cluster to another.
+
+* **asynchronously** replicating RADOS Block Device (RBD) data from
+one Ceph cluster to another.
 
 Now to understand how and why that is useful, we’ll have to back up a
 bit and look at how replication in a Ceph cluster *normally* works.
@@ -57,9 +62,16 @@ bit and look at how replication in a Ceph cluster *normally* works.
 <!-- Note -->
 As an application writes data to a Ceph cluster, it always talks to a
 single OSD (the **primary OSD**), which then takes care of replicating
-the write to the other, non-primary OSDs. Until that write is
-completed on *all* OSDs, the application considers it not completed at
-all. This is what we refer to as **synchronous** replication.
+the write to the other, non-primary OSDs. 
+
+Consider the flying blue balls here representing I/O in flight: as
+long as it’s not completed — turned green — *and reported as
+such* from all OSDs, the application considers it not completed at all
+and remains blue. Only when an acknowledgment from all OSDs has
+arrived does the client consider the write operation complete, and
+turns green itself.
+
+This is what we refer to as **synchronous** replication.
 
 
 <!-- .slide: data-background-image="images/osd-replication-slow.svg" data-background-size="contain" -->
@@ -68,8 +80,10 @@ all. This is what we refer to as **synchronous** replication.
 <!-- Note -->
 Synchronous replication is, inherently, latency-critical. If just one
 OSD is slow, or slow *to get to*, then that potentially holds up your
-entire application. This is why, with very few and clearly delineated
-exceptions, you should not attempt to do something like this:
+entire application.
+
+This is why, with very few and clearly delineated exceptions, you
+should not attempt to do something like this:
 
 
 <!-- .slide: data-background-image="images/map.svg" data-background-size="cover" -->
@@ -104,7 +118,7 @@ Ethernet RTT ≈ 0.1 ms <!-- .element: class="fragment" -->
 
 <!-- Note --> 
 Building stretched clusters for Ceph becomes impossible once the speed
-of light becomes your problem.
+of light gets in your way.
 
 * Consider that a typical Ethernet round-trip time (ping time) is on
   the order of 100µs or 0.1 milliseconds.
@@ -132,14 +146,20 @@ intercontinental scale.
 
 
 <!-- .slide: data-background-image="images/multiple-clusters.svg" data-background-size="contain" -->
-## Multiple distributed Ceph clusters <!-- .element: class="hidden" --> 
+## RBD Multi-Site Replication <!-- .element: class="hidden" --> 
 
 <!-- Note -->
 So this is why, for long-distance replication, we must take a
 different approach. And that is, we’re not doing replication at the
 low, RADOS level, from OSD to OSD, but instead we’re doing it one
-level up, at one of the abstraction layers *on top of* RADOS. And,
-importantly, we’re doing the replication **asynchronously.**
+level up, at one of the abstraction layers *on top of* RADOS.
+
+In this case, I am talking about the abstraction layer that’s most
+important for virtualization use cases, namely RBD.
+
+And, importantly, we need to be talking about replication that is
+**asynchronous,** so we *don’t* have to worry about network latency
+anymore.
 
 ~Now the first such Ceph application that got asynchronous replication
 capability *wasn’t* RBD, it was RADOS Gateway (rgw). RADOS Gateway,
