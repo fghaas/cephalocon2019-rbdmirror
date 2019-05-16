@@ -22,6 +22,7 @@ then opening the `test` file and verifying that its contents are
 indeed `hello world`, as expected.
 
 
+
 <!-- .slide: data-timing="1" -->
 ## rbd-bench script <!-- .element: class="hidden" -->
 
@@ -70,6 +71,7 @@ Turns `rbd bench` output into CSV
 If you ever find yourself in the position of parsing `rbd bench`
 output it to something that a spreadsheet can grok, please feel free
 to use this “one”-liner.
+
 
 
 ## Benchmarks with mirroring
