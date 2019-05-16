@@ -165,6 +165,7 @@ on a mirrored image, showing you the `journaling` flag, the `mirroring
 state`, and whether or not the image is primary or not (more on that
 in a second).
 
+
 <!-- .slide: data-background-color="#121314" data-timing="15" -->
 ## rbd mirror status <!-- .element: class="hidden" -->
 
