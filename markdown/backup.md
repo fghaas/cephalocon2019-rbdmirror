@@ -103,3 +103,15 @@ vs. non-journaled and journaled but unmirrored devices should still be useful.
 ### Random write IOPS
 (IOPS in terms of I/O size)
 <canvas data-chart="line" data-chart-src="benchmarks/vms/csv/aggregate/iops-write-rand.csv"></canvas>
+
+
+<!-- .slide: data-background-color="#121314" data-timing="-1" -->
+## Qemu boot on left <!-- .element: class="hidden" -->
+
+<iframe src="https://asciinema.org/a/WB3hiOcOuDRTc8hrIdtSjS05v/embed?size=big&rows=19&cols=80&theme=tango" class="stretch"></iframe>
+
+
+<!-- .slide: data-background-color="#121314" data-timing="-1" -->
+## Qemu boot on right <!-- .element: class="hidden" -->
+
+<iframe src="https://asciinema.org/a/VUmpUVswYtwjRKARunoNKWW3k/embed?size=big&rows=19&cols=80&theme=tango" class="stretch"></iframe>

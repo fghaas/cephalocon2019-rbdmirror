@@ -187,6 +187,18 @@ primary status with `rbd mirror image promote`. If you need to promote
 all images in a pool, you can do so with `rbd mirror pool promote`.
 
 
+<!-- .slide: data-background-color="#121314" data-timing="15" -->
+## rbd info on mirrored image <!-- .element: class="hidden" -->
+
+<iframe src="https://asciinema.org/a/lBXz520XopDyZKLJeCYynrXir/embed?size=big&rows=19&cols=80&theme=tango&loop=1" class="stretch"></iframe>
+
+
+<!-- .slide: data-background-color="#121314" data-timing="15" -->
+## rbd mirror status <!-- .element: class="hidden" -->
+
+<iframe src="https://asciinema.org/a/vnN6Krhi5zax4YjJTob7jEiUe/embed?size=big&rows=19&cols=80&theme=tango&loop=1" class="stretch"></iframe>
+
+
 <!-- .slide: data-background-image="images/site-failure.svg" data-background-size="contain" -->
 ## Site failure and recovery <!-- .element class="hidden" -->
 
