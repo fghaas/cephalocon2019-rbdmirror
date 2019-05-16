@@ -9,6 +9,7 @@ daemon needs CephX identities with very specific capabilities on
 And the first thing that we need to do is create those.
 
 
+# ceph auth get-or-create <!-- .element: class="hidden" --> 
 ```
 ceph auth get-or-create \
   client.rbd-mirror.{unique id} \
