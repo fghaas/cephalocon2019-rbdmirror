@@ -96,7 +96,7 @@ the volume with the UUID 78e176f2a66a4b1a9e0d08c2ba17fa18 (including
 its attachment data).
 
 
-## So, now way?
+## So, no way?
 
 Yes, there is. Sort of.  <!-- .element: class="fragment" -->
 
