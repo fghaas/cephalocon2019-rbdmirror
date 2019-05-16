@@ -100,45 +100,64 @@ reasonable limits. Normally, this is only true for Ceph clusters where
 all nodes are within the same city, **and** where you have dedicated
 fiber connections between them.
 
+However, building stretched clusters for Ceph becomes impossible once
+you’re having to deal with 𝒄.
 
-<!-- .slide: data-timing="55" -->
+
+<!-- .slide: data-timing="15" -->
+# 𝒄
+≈ 299 792.5 km/s <!-- .element: class="fragment" --> 
+
+<!-- Note -->
+No, that’s not C the programming language, but c as in the speed of light.
+
+Now the scientists and academics in the audience will forgive me the
+cheap joke, because in fact we’re obviously talking about the speed of
+light not in a vacuum, but in fibre-optic cables, [where it’s more
+like 204,190.5
+km/s](https://www.quora.com/What-is-precisely-the-speed-of-light-in-fiber-optics/answer/Steve-Blumenkranz).
+
+But:
+
+
+<!-- .slide: data-timing="60" -->
 ### Why long-distance Ceph clusters don’t work <!-- .element: class="hidden" --> 
 
 Ethernet RTT ≈ 0.1 ms <!-- .element: class="fragment" --> 
 
-0.1 light-ms ≈ 30 km <!-- .element: class="fragment" --> 
+0.1 light-ms (in fibre) ≈ 20 km <!-- .element: class="fragment" --> 
 
-15 km = 30 km round-trip <!-- .element: class="fragment" --> 
+10 km = 20 km round-trip <!-- .element: class="fragment" --> 
 
-150 km ≈ 1 ms light round-trip <!-- .element: class="fragment" --> 
+100 km ≈ 1 ms light round-trip <!-- .element: class="fragment" --> 
 
-150 km = 10× Ethernet RTT <!-- .element: class="fragment" --> 
+100 km = 10× Ethernet RTT <!-- .element: class="fragment" --> 
 
-1,500 km = 100× Ethernet RTT <!-- .element: class="fragment" --> 
+1,000 km = 100× Ethernet RTT <!-- .element: class="fragment" --> 
 
 <!-- Note --> 
-Building stretched clusters for Ceph becomes impossible once the speed
-of light gets in your way.
-
 * Consider that a typical Ethernet round-trip time (ping time) is on
   the order of 100µs or 0.1 milliseconds.
 
-* 0.1 *light*-milliseconds, that is to say the distance that light
-  travels in that time, is just 30 kilometers, or 
+* 0.1 *light*-milliseconds in fibre, that is to say the distance that
+  light travels in a glass fibre in that time, is just 20 kilometers,
+  or
   
-* a round-trip of a link that’s 15 km one-way.
+* a round-trip of a link that’s 10 km one-way.
 
   And that’s assuming a theoretically perfect environment, where
   there’s **no** additional latency, other than that of light
   traveling — in a straight-line fibre-optic link — between the two
-  locations.
+  locations. So you can’t ever assume LAN-like latency outside a 10-km
+  radius.
 
-* That means if your cluster sites are just 150 km apart — which would
-  be about from here to the French border —,
+* It also means if your cluster sites are just 100 km apart — which
+  doesn’t even cover the distance from here to the French border —,
   
 * your round-trip time increases tenfold versus a local Ethernet LAN.
   
-* For 1500 km (a distance from here to Berlin) it’s 100-fold.
+* For 1000 km (a distance from here to Munich, or Lisbon) it’s
+  100-fold.
 
 So clearly, building stretched clusters is not an option if you want
 to replicate your Ceph data on a continental, let alone
