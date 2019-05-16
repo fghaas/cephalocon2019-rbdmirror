@@ -9,9 +9,16 @@ Reveal.initialize({
     center: true,
     showNotes: true,
 
-
     transition: 'fade',
 
+    menu: {
+        themes: false,
+        transitions: false,
+        openButton: true,
+        openSlideNumber: true,
+        markers: true
+    },
+ 
     multiplex: {
         secret: null,
         id: 'fbef2915cd793511',
@@ -43,6 +50,7 @@ Reveal.initialize({
         { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
         { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } },
 
         { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
 

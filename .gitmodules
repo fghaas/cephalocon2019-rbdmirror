@@ -11,3 +11,6 @@
 [submodule "reveal.js-plugins"]
 	path = reveal.js-plugins
 	url = https://github.com/rajgoel/reveal.js-plugins
+[submodule "images/reveal.js-menu"]
+	path = reveal.js-menu
+	url = https://github.com/denehyg/reveal.js-menu
