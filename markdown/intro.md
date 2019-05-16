@@ -103,6 +103,13 @@ fiber connections between them.
 However, building stretched clusters for Ceph becomes impossible once
 you’re having to deal with 𝒄.
 
+* * *
+
+Map of Barcelona: © OpenStreetMap contributors.
+
+OpenStreetMap data is available under the [Open Database
+Licence](https://www.opendatacommons.org/licenses/odbl).
+
 
 <!-- .slide: data-timing="15" -->
 # 𝒄
