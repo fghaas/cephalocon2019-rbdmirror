@@ -31,18 +31,24 @@ they are there with my full notes.
 
 Lenz Grimmer  
 Kai Wagner  
-Adam Spiers  
 Hakim El-Hattab
+Adam Spiers  
+Asvin Goel  
+OpenStreetMap  
 
 <!-- Note --> 
 
 And finally, I’d like to thank a few people who kindly provided
 feedback and input on portions of this talk.
 
-* Lenz Grimmer, SUSE
-* Kai Wagner, SUSE
-* [Adam Spiers](https://blog.adamspiers.org/)
-* [Hakim El-Hattab](https://hakim.se/)
+* Lenz Grimmer, SUSE – content feedback
+* Kai Wagner, SUSE — content feedback
+* [Hakim El-Hattab](https://hakim.se/) — [reveal.js](https://revealjs.com/)
+* [Adam Spiers](https://blog.adamspiers.org/) — [reveal.js pacing timer](https://github.com/hakimel/reveal.js/pull/1564)
+* [Asvin
+  Goel](https://www.the-klu.org/faculty-research/resident-faculty/asvin-goel/)
+  — Chart.js integration with reveal.js
+* OpenStreetMap — map of Barcelona
 
 And if there are no further questions, I thank you very much for your
 time, and I wish you an excellent afternoon. Thank you!
