@@ -118,7 +118,7 @@ there’s practically no way to add this as an afterthought.
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" data-timing="15" -->
-## OpenStack Integration: Cinder AZs and pool-level mirroring <!-- .element: class="hidden" -->
+## OpenStack DR: Galera <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 This is your checklist:
@@ -129,6 +129,7 @@ This is your checklist:
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" data-timing="15" -->
+## OpenStack DR: OpenStack services and AZs <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 * You need all OpenStack API services in all locations. 
@@ -136,6 +137,7 @@ This is your checklist:
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" data-timing="15" -->
+## OpenStack DR: OpenStack compute and gateway nodes <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 * You need compute nodes, and network gateway nodes plus independent
@@ -145,6 +147,7 @@ This is your checklist:
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" data-timing="15" -->
+## OpenStack DR: L3 network connectivity <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 * You need management, tenant/tunnel, and storage L3 connectivity
@@ -152,6 +155,7 @@ This is your checklist:
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" data-timing="15" -->
+## OpenStack DR: Local Ceph clusters <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 * Nova, Glance, and Cinder must all be wired up with their **local**
@@ -159,6 +163,7 @@ This is your checklist:
 
 
 <!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" data-timing="15" -->
+## OpenStack DR: rbd-mirror <!-- .element: class="hidden" -->
 
 <!-- Note --> 
 * You must set up two-way, pool-level replication for your Nova,
