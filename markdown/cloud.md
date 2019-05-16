@@ -110,7 +110,7 @@ OpenStack environment, and you’d have to get it right immediately —
 there’s practically no way to add this as an afterthought.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-database.svg" data-background-size="contain" data-timing="15" -->
 ## OpenStack Integration: Cinder AZs and pool-level mirroring <!-- .element: class="hidden" -->
 
 <!-- Note --> 
@@ -121,14 +121,14 @@ This is your checklist:
   run 3 sites anyway, in the first place.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-api.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need all OpenStack API services in all locations. 
 * You’ll also need AZs by site for Nova, Cinder, and Neutron.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-routers.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need compute nodes, and network gateway nodes plus independent
@@ -137,21 +137,21 @@ This is your checklist:
   either here or there.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-l3.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You need management, tenant/tunnel, and storage L3 connectivity
   between all locations.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-ceph.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * Nova, Glance, and Cinder must all be wired up with their **local**
   Ceph cluster.
 
 
-<!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" -->
+<!-- .slide: data-background-image="images/multisite-openstack-rbdmirror.svg" data-background-size="contain" data-timing="15" -->
 
 <!-- Note --> 
 * You must set up two-way, pool-level replication for your Nova,
