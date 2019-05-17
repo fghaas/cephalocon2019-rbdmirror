@@ -12,6 +12,7 @@ body:after {
     content: '@xahteiwi';
     opacity: 0.5;
     font-size: 200%;
+    font-family: "Source Sans Pro", sans-serif;
     position: fixed;
     bottom: 2em;
     right: 2em;
