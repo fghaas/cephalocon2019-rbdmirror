@@ -1,5 +1,7 @@
 # `rbd-mirror` authentication
 
+(on pre-Nautilus) <!-- .element: class="fragment" --> 
+
 <!-- Note --> 
 So. We know we need a running `rbd-mirror` that can watch journals on
 one cluster, and then replay them on the other. That means that that
@@ -7,6 +9,9 @@ daemon needs CephX identities with very specific capabilities on
 **both** clusters.
 
 And the first thing that we need to do is create those.
+
+* On the Luminous and Mimic releases, that is. In Nautilus, there’s no
+  need to do that anymore.
 
 
 # ceph auth get-or-create <!-- .element: class="hidden" --> 
