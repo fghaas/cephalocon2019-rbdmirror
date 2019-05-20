@@ -31,6 +31,7 @@ they are there with my full notes.
 
 Lenz Grimmer  
 Kai Wagner  
+Jason Dillaman  
 Hakim El-Hattab  
 Adam Spiers  
 Asvin Goel  
@@ -43,6 +44,7 @@ feedback and input on portions of this talk.
 
 * Lenz Grimmer, SUSE – content feedback
 * Kai Wagner, SUSE — content feedback
+* Jason Dillaman, Red Hat — content feedback
 * [Hakim El-Hattab](https://hakim.se/) — [reveal.js](https://revealjs.com/)
 * [Adam Spiers](https://blog.adamspiers.org/) — [reveal.js pacing timer](https://github.com/hakimel/reveal.js/pull/1564)
 * [Asvin

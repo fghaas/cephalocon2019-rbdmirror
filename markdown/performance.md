@@ -112,10 +112,13 @@ twice.
 And that is true for large-ish I/O sizes, as we can see here on the
 right-hand side of the chart where we’re in 128K to 4M per write
 territory, but for small writes the overhead is truly astounding — yes
-that *is* really a factor of 10 for 4K writes. My untested hypothesis
-for this is that the partial RADOS object writes (4K writes on 4M
-objects) that `librbd` needs to do here play really badly with
-journaling.
+that *is* really a factor of 10 for 4K writes. 
+
+Word from this very conference is that you can address this with the
+`rbd_journal_object_flush_*` librbd options. In pre-Nautilus, this is
+something you need to set on *every* client. From Nautilus onward, you
+can set it centrally with cluster config options that also propagate
+to the clients. This is something I have yet to test.
 
 
 <!-- .slide: data-timing="15" -->
