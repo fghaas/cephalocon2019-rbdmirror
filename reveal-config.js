@@ -39,7 +39,19 @@ Reveal.initialize({
             },
         },
         line: {
-            borderColor: [ "rgba(0,0,0,0.8)" , "rgba(220,120,120,1)", "rgba(20,120,220,.8)" ],
+            borderColor: [
+		"rgba(0,0,0,1)" ,
+		"rgba(220,0,0,1)",
+		"rgba(20,120,220,1)"
+	    ],
+            borderDash: [
+		[],
+		[10,5],
+		[2,2]
+	    ],
+            backgroundColor: [
+		"rgba(0,0,0,0.05)"
+	    ],
         },
     },
     // Optional libraries used to extend on reveal.js
