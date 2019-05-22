@@ -40,7 +40,7 @@ kernel driver.
 
 ## Enabling journaling on an existing image <!-- .element: class="hidden" --> 
 
-```
+```bash
 rbd feature enable <pool>/<image> journaling
 ```
 
@@ -53,13 +53,13 @@ allows you to do that with `rbd feature enable`.
 
 ## Enabling journaling on a new image <!-- .element: class="hidden" --> 
 
-```
+```bash
 rbd create \
   --image-feature exclusive-lock,journaling \
   --size <size> \
   <pool>/<image>
 ```
-```
+```bash
 rbd import \
   --image-feature exclusive-lock,journaling \
   <file> \
