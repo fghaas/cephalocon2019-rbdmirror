@@ -188,11 +188,11 @@ And, importantly, we need to be talking about replication that is
 **asynchronous,** so we *don’t* have to worry about network latency
 anymore.
 
-~Now the first such Ceph application that got asynchronous replication
+Now the first such Ceph application that got asynchronous replication
 capability *wasn’t* RBD, it was RADOS Gateway (rgw). RADOS Gateway,
 however, deals only with RESTful object data, and we needed something
 to also replicate RBD block data, which we got in Jewel: RBD
-mirroring.~
+mirroring.
 
 So, what we’d like to get is an RBD image whose changes are
 *asynchronously* applied in a remote location. To get that capability,

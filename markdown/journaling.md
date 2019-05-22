@@ -3,9 +3,9 @@
 <!-- Note -->
 Now RBD journaling has nothing — zilch, nada, niente — to do with *OSD
 journaling,* which is an implementation detail of the OSD FileStore
-implementation~, which is obsolete as of BlueStore. RBD journaling is
+implementation, which is obsolete as of BlueStore. RBD journaling is
 inherently tied to RADOS Block Device (RBD) and RBD only, and is
-independent of the Ceph cluster’s OSD implementation.~
+independent of the Ceph cluster’s OSD implementation.
 
 The purpose of the RBD journal is to 
 
@@ -15,8 +15,8 @@ The purpose of the RBD journal is to
 
 (from <https://tracker.ceph.com/projects/ceph/wiki/Rbd_journal>)
 
-~It landed in the Ceph source tree in [November
-2015](https://github.com/ceph/ceph/pull/6034).~
+It landed in the Ceph source tree in [November
+2015](https://github.com/ceph/ceph/pull/6034).
 
 
 <!-- .slide: data-background-image="images/rbd-journal.svg" data-background-size="contain" -->
