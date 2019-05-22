@@ -58,7 +58,7 @@ options:
 
 ## Pool-mode mirroring <!-- .element class="hidden" -->
 
-```
+```bash
 rbd mirror pool enable <pool> pool
 ```
 
@@ -71,7 +71,7 @@ automatically mirrored, as long as they have journaling enabled.
 
 ## Image-mode mirroring <!-- .element class="hidden" -->
 
-```
+```bash
 rbd mirror pool enable <pool> image
 ```
 
@@ -82,7 +82,7 @@ In **image-mode** mirroring, any images that should be mirrored must
 
 * have journaling enabled,
 * additionally be *explicitly* enabled for mirroring with:
-  ```
+  ```bash
   rbd mirror image enable <pool>/<image>
   ```
 

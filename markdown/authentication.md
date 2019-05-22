@@ -15,7 +15,7 @@ And the first thing that we need to do is create those.
 
 
 # ceph auth get-or-create <!-- .element: class="hidden" --> 
-```
+```bash
 ceph auth get-or-create \
   client.rbd-mirror.{unique id} \
   mon 'profile rbd-mirror' \
@@ -45,7 +45,7 @@ the keyring locations right.
 
 ## Credentials for local cluster
 
-```
+```bash
 ceph auth get \
   client.rbd-mirror.{unique id} \
   > /etc/ceph/ceph.client.rbd-mirror.{unique id}.keyring
@@ -87,7 +87,7 @@ So far, so simple.
 mon host = right-mon1, right-mon2, right-mon3
 ```
 
-```
+```bash
 /etc/ceph/right.client.rbd-mirror.{unique id}.keyring
 ```
 
@@ -120,7 +120,7 @@ not `ceph`, but `right`. So:
 mon host = left-mon1, left-mon2, left-mon3
 ```
 
-```
+```bash
 /etc/ceph/left.client.rbd-mirror.{unique id}.keyring
 ```
 
@@ -141,7 +141,9 @@ Sounds complicated and it is, but it’s really quite logical.
 # on left
 ceph --id rbd-mirror.{unique id} -s
 ceph --cluster right --id rbd-mirror.{unique id} -s
+```
 
+```bash
 # on right
 ceph --id rbd-mirror.{unique id} -s
 ceph --cluster left --id rbd-mirror.{unique id} -s
