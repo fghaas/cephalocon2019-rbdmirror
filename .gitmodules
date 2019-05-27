@@ -6,8 +6,8 @@
 	url = https://github.com/highlightjs/highlight.js
 [submodule "reveal.js"]
 	path = reveal.js
-	url = https://github.com/fghaas/reveal.js
-	branch = alternate-timing
+	url = https://github.com/hakimel/reveal.js
+	branch = dev
 [submodule "reveal.js-plugins"]
 	path = reveal.js-plugins
 	url = https://github.com/rajgoel/reveal.js-plugins
